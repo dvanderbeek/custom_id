@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Validators</h1>
+
+<div id="validators">
+  <% @validators.each do |validator| %>
+    <%= render validator %>
+    <p>
+      <%= link_to "Show this validator", validator %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New validator", new_validator_path %>

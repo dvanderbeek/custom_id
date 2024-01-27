@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @validator %>
+
+<div>
+  <%= link_to "Edit this validator", edit_validator_path(@validator) %> |
+  <%= link_to "Back to validators", validators_path %>
+
+  <%= button_to "Destroy this validator", @validator, method: :delete %>
+</div>
