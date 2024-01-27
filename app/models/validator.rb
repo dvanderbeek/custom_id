@@ -1,3 +1,3 @@
 class Validator < ApplicationRecord
-  alias_attribute :pubkey, :id
+  self.primary_key = :pubkey
 end
