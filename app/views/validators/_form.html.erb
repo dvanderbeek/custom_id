@@ -13,7 +13,16 @@
 
   <div>
 
-    <%= form.text_field :pubkey %>
+    <div>
+      <%= form.label :pubkey %>
+      <%= form.text_field :pubkey %>
+    </div>
+
+    <div>
+      <%= form.label :status %>
+      <%= form.text_field :status %>
+    </div>
+
     <%= form.submit %>
   </div>
 <% end %>

@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_27_033741) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_27_152354) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "email_logs", force: :cascade do |t|
+    t.string "type"
+    t.datetime "sent_at"
+    t.string "record_type"
+    t.bigint "record_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exit_requests", force: :cascade do |t|
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "transactions", force: :cascade do |t|
     t.string "txn_hash"
@@ -25,7 +40,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_27_033741) do
   create_table "validators", primary_key: "pubkey", id: :string, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "exit_request_id"
+    t.string "status"
+    t.index ["exit_request_id"], name: "index_validators_on_exit_request_id"
   end
 
   add_foreign_key "transactions", "validators", primary_key: "pubkey"
+  add_foreign_key "validators", "exit_requests"
 end

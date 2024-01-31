@@ -65,6 +65,6 @@ class ValidatorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def validator_params
-      params.fetch(:validator, {}).permit(:pubkey)
+      params.fetch(:validator, {}).permit(:pubkey, :status)
     end
 end

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  sent_at: 2024-01-27 07:23:54
+  record_type: MyString
+  record_id: 
+
+two:
+  type: 
+  sent_at: 2024-01-27 07:23:54
+  record_type: MyString
+  record_id: 
